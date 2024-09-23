@@ -1,0 +1,27 @@
+{
+    "axios": {
+        "params": {
+            "headers":{
+                "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64; rv:125.0) Gecko/20100101 Firefox/125.0",
+                "Accept": "application/json",
+                "Content-Type": "application/json; charset=UTF-8",
+                "partnerkey": "easypay-v2",
+                "locale": "en"
+            }
+        },
+        "jsonTemplate": {
+            "fields": [{
+                "fieldName": "Number",
+                "fieldValue": "0",
+                "fieldKey": null,
+                "fieldValueDescription": ""
+            }],
+            "serviceKey": "LEOCART-WALLET",
+            "amount": 10,
+            "multyCheckPaymentStepIndex": 0
+        }
+    },
+    "zeroBalanceChecks": 4,
+    "pollingInterval": 2,
+    "CardsPerWorker": 60
+}
