@@ -2,8 +2,9 @@
 Telegram bot for the leocard transport card that allows you to conveniently check the balance and receive notifications about balance changes.
 
 ## How it works?
-After adding a unique card id, it is added to *modules/tgManager/easyPay/cards.json*. Periodically, the bot checks the balance of all cards in this json via the EasyPay API, which was obtained by reverse engineering.
-When you send a top-up request, the server returns payment details and the current card balance. However, if you send too many such requests, the server will refuse to serve you. That's why I split the requests into different Appids so that EasyPay seems like it's not one user, but hundreds of different ones (many providers use NAT).
+After adding a unique card id, it is added to *modules/tgManager/easyPay/cards.json*. Periodically, the bot checks the balance of all cards in this json via the EasyPay API, which was obtained by reverse engineering. Later, I found and downloaded the file *EasyPayMerchantApi(Beta1.0).docx* from the Internet archive. Although the API described there is slightly different from the modern one, everything is basically the same.
+
+When you send a top-up request, the server returns payment details and the current card balance. However, if you send too many such requests, the server will refuse to serve you. That's why I split the requests into different Appids so that EasyPay seems like it's not one user, but hundreds of different ones (as you know, many ISPs use NAT).
 If the balance has changed since the last check, the user receives a notification about this.
 If another user adds an card id that is already present in cards.json, the server will simply attach another user to the already existing card.
 
@@ -32,9 +33,6 @@ Accordingly, if you want to serve 100 cards, then set pollingInterval to the val
 where
 * 100 - the number of cards
 * 9500 is the maximum number of requests per day (note that when adding a unique card, the server sends a request to receive the balance)
-
-
-
 
 ## settings
 The settings here are split into 3 separate files
