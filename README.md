@@ -32,7 +32,11 @@ Accordingly, if you want to serve 100 cards, then set pollingInterval to the val
 
 where
 * 100 - the number of cards
-* 9500 is the maximum number of requests per day (note that when adding a unique card, the server sends a request to receive the balance)
+* 9500 is the maximum number of requests per day
+
+Notes:
+* always round **UP** pollingInterval
+* when the user adds a unique card id, the server sends a balance request, that's why I specified 9500 instead of 10000
 
 ## settings
 The settings here are split into 3 separate files
